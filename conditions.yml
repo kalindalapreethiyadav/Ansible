@@ -8,3 +8,10 @@
         msg: Hello centos!!
       when: ansible_distribution == "CentOS"
 
+    - name: Only for unbuntu machines checking
+      debug:
+        msg: Hello centos!!
+      when: ansible_distribution == "Ubuntu"
+
+#can do other examples restart, stop all the centos machines only
+
