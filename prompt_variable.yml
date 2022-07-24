@@ -1,0 +1,11 @@
+- name: sample example on variable
+  hosts: non_prod
+  vars:
+    URL: dev.google.com #This are global variables
+  vars_prompt:
+    name: Reading variable at runtime by prompting
+    prompt: Enter URL
+  tasks:
+    - name: Printing URL
+      ansible.builtin.debug:
+        msg: printing the {{ URL }}
