@@ -1,0 +1,8 @@
+- name: play1
+  hosts: non_prod
+  var:
+    -url: dev.google.com
+  task:
+    - name: Printing URL
+      ansible.builtin.debug:
+        msg: printing the {{url}}
