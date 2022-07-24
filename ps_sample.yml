@@ -7,3 +7,5 @@
     
      - name: Printing URL
         msg: The value of Out status code is {{ OUT.rc }} & printing the output is {{ OUT.stdout }}
+
+#OUT.rc is used to check the status of the register output 0 or 1
