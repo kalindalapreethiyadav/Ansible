@@ -26,6 +26,11 @@
         msg: "sample is defined and declared then only run "
       when: sample is defined  #excute only when smaple is defined 
 
+     - name: defined the defined and undefined keywords
+      debug:
+        msg: "sample_un is defined and declared then only run "
+      when: sample_un is defined  #won't excute as sample_un is undefined 
+
 
     
 
