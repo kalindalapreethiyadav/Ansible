@@ -3,6 +3,6 @@
 #lets specify the inventory to the play (egs: non+prod/Server12/test or all)
   hosts: non_prod
   tasks:
-    -name: print hello word message
+    - name: print hello word message
       ansible.builtin.debug:
         msg: Hi!! Preethi, This is your first Ansible playbook code
