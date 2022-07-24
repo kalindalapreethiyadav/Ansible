@@ -19,3 +19,8 @@
     - name: Printing URL
       ansible.builtin.debug:
         msg: printing the {{ cli_url }}
+
+    - name: Printing URL
+      ansible.builtin.debug:
+        msg: printing the {{ URL }}
+      private: yes
