@@ -4,6 +4,7 @@
   hosts: non_prod
   vars:
     action: true
+    sample: xyz
   tasks:
     - name: Only for centos machines checking
       debug:
@@ -19,6 +20,12 @@
       debug:
         msg: now only print when action is true
       when: action
+    
+     - name: defined the defined and undefined keywords
+      debug:
+        msg: "sample is defined and declared then only run "
+      when: sample is defined  #excute only when smaple is defined 
+
 
     
 
