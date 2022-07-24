@@ -5,7 +5,7 @@
       shell: uptime
       register: OUT #To store the standard output and can be reused, so need to "register"
 
-    -name: printing the uptime that collected
+    - name: printing the uptime that collected
         debug:
           msg: "{{ OUT }}"   #In MSG, IF variable starts first then should be in "" then it works.
 
