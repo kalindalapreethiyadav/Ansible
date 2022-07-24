@@ -5,8 +5,8 @@
       shell: ps -ef | grep "java" | grep -v grep
       register: OUT
     
-     - name: Printing teh status and standoutput
-       debug:
+    - name: Printing teh status and standoutput
+      debug:
         msg: The value of Out status code is {{ OUT.rc }} & printing the output is {{ OUT.stdout }}
 
 #OUT.rc is used to check the status of the register output 0 or 1
