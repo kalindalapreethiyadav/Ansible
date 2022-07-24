@@ -1,0 +1,26 @@
+
+- name: sample example on tags
+  hosts: non_prod
+  tasks:
+    - name: Running the dev envirnment
+      debug:
+        msg: It is dev environment
+      tags: dev
+
+    - name: Running the lab envirnment
+      debug:
+        msg: It is lab environment
+      tags: lab
+
+    - name: Running the ppe envirnment
+      debug:
+        msg: It is ppe environment
+      tags: ppe
+
+  #tags been used for the tasks, so that we can call only the required tag ans only that task will be excuted
+  
+    
+    - name: example of the defined keywords
+      debug:
+        msg: "sample is defined and declared then only run "
+      when: sample is defined  #excute only when smaple is defined 
