@@ -1,0 +1,37 @@
+Below is to check the servers are reachable or not using ping module  
+-->ansible -i inventory all -u centos -k -m ping
+
+we can create our own module as per our requirment
+In Ansible most are requirments are been moduled
+example : shell, copy,ping...etc modules in Ansible
+
+Ansible is "DECLERATIVE" --just we need to specify the requirement ..all the action and task that need to be
+done will be known by Ansible
+
+Other tools, Bash cripting---are "IMPERATIVE" where we need to tell each and evert action that need to be done
+
+Ansible can be used(operated) in 2 Mode(Types) :-
+1. Manual Approach (Single command)
+2. Automated Approach (play books:YAML/YML)
+
+#Play BOOKs is also a script that can be automated as per requirment.
+
+Play Books is which contains lots of Plays
+JSON,HTML,HTML%,Javascriptlike this YAML --ia also a Mark up language to repesent the data.
+Yet Another Markup language(YAML) ---easy to understand & popular.
+
+INDENTATION ---- uniform spacing & tab spaces are not allowed in YAML.
+
+Extenstion:-
+-YAML 
+-YML
+Both are same
+
+YAML is most important is below two things:-
+
+1) Dictionary -- A key is having a value pair (ex: Name:preethi) "KEY:vALUE"
+2) Lists -- A key having mutiple values pairs
+Ex: Teams:
+       -AM
+       -AD
+
