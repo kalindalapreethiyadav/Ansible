@@ -9,4 +9,4 @@
       debug:
         msg: "{{ OUT }}"   #In MSG, IF variable starts first then should be in "" then it works.
 
-Register -->used to take output and can be use anywhere where required
+#Register -->used to take output and can be use anywhere where required
