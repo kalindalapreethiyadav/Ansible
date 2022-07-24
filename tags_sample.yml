@@ -18,9 +18,5 @@
       tags: ppe
 
   #tags been used for the tasks, so that we can call only the required tag ans only that task will be excuted
-  
-    
-    - name: example of the defined keywords
-      debug:
-        msg: "sample is defined and declared then only run "
-      when: sample is defined  #excute only when smaple is defined 
+  # -t tagname ---> we use so that only that tag task will be excuted.
+  # -->$ansible-playbook -i inventory -u centos -e ansible_password=DevOps321 tags_sample.yml -t dev
