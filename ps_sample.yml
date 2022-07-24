@@ -1,0 +1,9 @@
+- name: sample example on variable
+  hosts: non_prod
+  tasks:
+    - name: checking tomcat is running or not
+      shell: ps -ef | grep "java" | grep -v grep
+      register: OUT
+    
+     - name: Printing URL
+        msg: The value of Out status code is {{ OUT.rc }} & printing the output is {{ OUT.stdout }}
