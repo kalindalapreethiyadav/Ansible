@@ -5,10 +5,10 @@
   tasks:
     - name: Printing URL
       ansible.builtin.debug:
-        msg: printing the {{ URL }}
+        msg: printing the {{ url }}
 
     - name: Printing URL
       ansible.builtin.debug:
         msg: printing the {{ url }}
       vars:
-        url: localvariable.checking.com
+        url: localvariable.checking.com #This is local variable declaration
