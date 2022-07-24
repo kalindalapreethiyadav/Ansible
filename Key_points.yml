@@ -1,0 +1,11 @@
+#Below is to check the servers are reachable or not using ping module  
+#ansible -i inventory all -u centos -k -m ping
+
+#we can create our own module as per our requirment
+#In Ansible most are requirments are been moduled
+#example shell, copy,ping...etc modules in Ansible
+
+#Ansible is "DECLERATIVE" --just we need to specify the requirement ..all the action and task that need to be
+#done will be known by Ansible
+
+#Other tools, Bash cripting---are "IMPERATIVE" where we need to tell each and evert action that need to be done
