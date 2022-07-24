@@ -1,5 +1,11 @@
 - name: Example of using resitory
   hosts: servers12
   tasks:
-    - name: printing uptime
+    - name: collecting the uptime
         shell: uptime
+        register: OUT
+
+    -name: printing the uptime that collected
+       msg: "{{ OUT }}"   #In MSG, IF variable starts first then should be in "" then it works.
+
+Register -->used to take output and can be use anywhere where required
