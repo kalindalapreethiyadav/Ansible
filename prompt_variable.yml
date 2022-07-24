@@ -9,3 +9,13 @@
     - name: Printing URL
       ansible.builtin.debug:
         msg: printing the {{ URL }}
+
+    - name: Printing URL
+      ansible.builtin.debug:
+        msg: printing the {{ url }}
+      vars:
+        url: localvariable.checking.com #This is local variable declaration
+
+    - name: Printing URL
+      ansible.builtin.debug:
+        msg: printing the {{ cli_url }}
