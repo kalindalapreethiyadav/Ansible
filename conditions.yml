@@ -10,7 +10,7 @@
 
     - name: Only for unbuntu machines checking
       debug:
-        msg: Hello centos!!
+        msg: Hello Ubuntu!!
       when: ansible_distribution == "Ubuntu"
 
 #can do other examples restart, stop all the centos machines only
