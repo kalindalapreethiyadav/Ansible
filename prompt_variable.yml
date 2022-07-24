@@ -3,7 +3,7 @@
   vars:
     URL: dev.google.com #This are global variables
   vars_prompt:
-    name: UR  #declaring the variable name -not just text message
+    name: U  #declaring the variable name -not just text message
     prompt: Enter P_URL
     private: no
 
