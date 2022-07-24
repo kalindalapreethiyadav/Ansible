@@ -1,0 +1,5 @@
+- name: Example of using resitory
+  hosts: servers12
+  tasks:
+    - name: printing uptime
+        shell: uptime
