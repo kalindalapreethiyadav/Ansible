@@ -1,11 +1,11 @@
 - name: sample example on variable
   hosts: non_prod
   vars:
-    URL: dev.google.com #This are global variables
+    url: dev.google.com #This are global variables
   tasks:
     - name: Printing URL
       ansible.builtin.debug:
-        msg: printing the {{ url }}
+        msg: printing the {{ URL }}
 
     - name: Printing URL
       ansible.builtin.debug:
