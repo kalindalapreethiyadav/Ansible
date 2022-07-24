@@ -10,6 +10,17 @@ done will be known by Ansible
 
 Other tools, Bash cripting---are "IMPERATIVE" where we need to tell each and evert action that need to be done
 
+what is play book?
+list of plays
+---> playook always starts as a listsv(-)
+
+
+what is play?
+list of task
+
+what is task?
+Any action we do ugrade, adding user, checking uptime, pakage apply..etc
+
 Ansible can be used(operated) in 2 Mode(Types) :-
 1. Manual Approach (Single command)
 2. Automated Approach (play books:YAML/YML)
