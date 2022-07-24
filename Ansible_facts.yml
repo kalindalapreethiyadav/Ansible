@@ -14,5 +14,8 @@
       ansible.builtin.debug:
         msg: printing the {{ ansible_default_ipv4.address }}
 
+# ansible_default_ipv4 --this varibale and "address =172.31.94.53" thsi collected by ansible
+#printed the value like above can fetch as required.
+
 
 
