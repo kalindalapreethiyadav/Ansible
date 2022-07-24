@@ -1,0 +1,10 @@
+#when condition: if condition staisfed the excute else exit the loop
+
+- name: sample example on conditions
+  hosts: non_prod
+  tasks:
+    - name: Only for centos machines checking
+      debug:
+        msg: Hello centos!!
+      when: ansible_distribution == "CentOS"
+
