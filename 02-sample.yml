@@ -1,7 +1,7 @@
 - name: sample example on variable
   hosts: non_prod
   vars:
-    url: dev.google.com #This are global variables
+    URL: dev.google.com #This are global variables
   tasks:
     - name: Printing URL
       ansible.builtin.debug:
