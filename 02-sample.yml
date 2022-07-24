@@ -1,0 +1,2 @@
+#Below is to check the servers are reachable or not using ping module  
+#ansible -i inventory all -u centos -k -m ping
