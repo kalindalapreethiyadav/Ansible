@@ -2,11 +2,14 @@
   hosts: non_prod
   tasks:
     - name: checking tomcat is running or not
-      shell: ps -ef | grep "java" | grep -v grep
+      shell: ps -ef | grep "java" | grep -v grep #checking whether any process running or not
       register: OUT
+      ignore_errors: yes #even if output is error it should ignore so use "ignore_errors"
     
     - name: Printing teh status and standoutput
       debug:
         msg: The value of Out status code is {{ OUT.rc }} & printing the output is {{ OUT.stdout }}
+#if no process running then failed "status code is : 1" (OUT.rc)
+#If success then the status cide is : 1 (OUT.rc)
 
 #OUT.rc is used to check the status of the register output 0 or 1
