@@ -1,0 +1,4 @@
+
+#Fact --is the ansible host server gathers all the property of the target nodes, before excuting the tasks is called "gathering facts"
+
+$ansible all -i inventory all -u centos -e ansible_password=password -m setup
