@@ -15,12 +15,17 @@
 
     - name: Printing URL
       ansible.builtin.debug:
-        msg: printing the {{ cli_url }} # declaring the variable value at CLI end 
+        msg: printing the {{ cli_url }} # declaring the variable value at CLI end (Runtime variable)
 
 #In CLI command "-e varible=value" syntax. 
 #-e is expession we use for any values we declare most everwhere we use like this -e to declare
 #ansible-playbook -i inventory -u centos -e ansible_password=DevOps321 -e cli_url=cliurl.command.com CLI_Variable.yml
 
-Which varibal ehave high precedence?
+#Which varibal ehave high precedence?
 
-cli_command variable > local variable > global variable
+#cli_command variable > local variable > global variable
+
+#How to override the variables?
+#by using command line varible can override
+
+#commandline varibales is also know as Runtime variables
