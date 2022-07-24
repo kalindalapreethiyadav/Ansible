@@ -2,6 +2,7 @@
 
 - name: sample example on conditions
   hosts: non_prod
+  action: true
   tasks:
     - name: Only for centos machines checking
       debug:
@@ -13,5 +14,16 @@
         msg: Hello Ubuntu!!
       when: ansible_distribution == "Ubuntu"
 
+    
+
 #can do other examples restart, stop all the centos machines only
+
+#Boolen condition : 
+
+#"defined and undfined are pre-defined keywword"
+
+    - name: defined the action is true
+      debug:
+        msg: now only print when action is true
+      when: action
 
