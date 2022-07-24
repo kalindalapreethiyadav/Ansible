@@ -6,7 +6,7 @@
       register: OUT #To store the standard output and can be reused, so need to "register"
 
     -name: printing the uptime that collected
-      debug:
+     debug:
         msg: "{{ OUT }}"   #In MSG, IF variable starts first then should be in "" then it works.
 
 #Register -->used to take output and can be use anywhere where required
