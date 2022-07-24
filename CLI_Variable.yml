@@ -1,11 +1,11 @@
 - name: sample example on variable
   hosts: non_prod
   vars:
-    URL: dev.google.com #This are global variables
+    URL: dev.google.com #This are global variables declartion
   tasks:
     - name: Printing URL
       ansible.builtin.debug:
-        msg: printing the {{ URL }}
+        msg: printing the {{ URL }} #Global varibale reading
 
     - name: Printing URL
       ansible.builtin.debug:
@@ -21,4 +21,6 @@
 #-e is expession we use for any values we declare most everwhere we use like this -e to declare
 #ansible-playbook -i inventory -u centos -e ansible_password=DevOps321 -e cli_url=cliurl.command.com CLI_Variable.yml
 
-  
+Which varibal ehave high precedence?
+
+cli_command variable > local variable > global variable
