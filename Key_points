@@ -46,3 +46,6 @@ Ex: Teams:
        -AM
        -AD
 
+what is facts in Ansible?
+
+Fact --is the ansible host server gathers all the property of the target nodes, before excuting the tasks is called "gathering facts"
