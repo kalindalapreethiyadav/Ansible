@@ -1,4 +1,4 @@
-- name: play1
+- name: sample example on variable
   hosts: non_prod
   vars:
     url: dev.google.com
