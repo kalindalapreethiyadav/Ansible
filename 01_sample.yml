@@ -5,4 +5,4 @@
   tasks:
    -name: print hello word message
     ansible.biultin.debug:
-        msg: Hi!! Preethi, This is your first Ansible playbook code
+      msg: Hi!! Preethi, This is your first Ansible playbook code
