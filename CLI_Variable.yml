@@ -9,10 +9,13 @@
 
     - name: Printing URL
       ansible.builtin.debug:
-        msg: printing the {{ url }}
+        msg: printing the {{ cli_url }}
       vars:
         url: localvariable.checking.com #This is local variable declaration
 
-# Case-sensitive --if varibles are URL declared than callinga lso should be same as "URL"
+    - name: Printing URL
+      ansible.builtin.debug:
+        msg: printing the {{ cli_url }} # declaring the variable value at CLI end 
 
-local varibale > Global variable
+#
+  
