@@ -3,12 +3,12 @@
   vars:
     URL: dev.google.com #This are global variables
   vars_prompt:
-    name: URL  #declaring the variable name -not just text message
+    name: P_URL  #declaring the variable name -not just text message
     prompt: Enter URL
   tasks:
     - name: Printing URL
       ansible.builtin.debug:
-        msg: printing the {{ URL }}
+        msg: printing the {{ P_URL }}
 
     - name: Printing URL
       ansible.builtin.debug:
@@ -22,5 +22,5 @@
 
     - name: URL
       ansible.builtin.debug:
-        msg: printing the {{ URL }}
+        msg: printing the {{ P_URL }}
       private: yes
