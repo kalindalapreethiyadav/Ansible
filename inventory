@@ -1,8 +1,7 @@
 [test]
 172.31.82.114
 172.31.84.241
-node1.robotshop.internal
 
 [test2]
-node2.robotshop.internal
-preethi.robotshop.internal
+server1.robotshop.internal
+server2.robotshop.internal
