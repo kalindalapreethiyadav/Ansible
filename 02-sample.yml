@@ -2,7 +2,7 @@
   hosts: non_prod
   vars:
     URL: dev.google.com
-  task:
+  tasks:
     - name: Printing URL
       ansible.builtin.debug:
         msg: printing the {{ URL }}
