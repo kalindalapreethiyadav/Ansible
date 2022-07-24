@@ -5,7 +5,7 @@
   vars_prompt:
     name: P_URL  #declaring the variable name -not just text message "variable name"
     prompt: Enter P_URL
-    private: no
+    private: no  #while prompted for value it doesn't show text , to disable security we use "no"
 
   tasks:
     - name: Printing URL
