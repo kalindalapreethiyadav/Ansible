@@ -3,7 +3,7 @@
   tasks:
     - name: collecting the uptime
         shell: uptime
-        register: OUT
+        register: OUT #To store the standard output and can be reused, so need to "register"
 
     -name: printing the uptime that collected
       debug:
