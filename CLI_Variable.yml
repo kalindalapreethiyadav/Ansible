@@ -17,5 +17,6 @@
       ansible.builtin.debug:
         msg: printing the {{ cli_url }} # declaring the variable value at CLI end 
 
-#
+#ansible-playbook -i inventory -u centos -e ansible_password=DevOps321 -e cli_url=cliurl.command.com CLI_Variable.yml
+
   
