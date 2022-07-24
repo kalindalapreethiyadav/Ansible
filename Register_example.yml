@@ -3,10 +3,11 @@
   tasks:
     - name: collecting the uptime
       shell: uptime
-      register: OUT #To store the standard output and can be reused, so need to "register"
+      register: OUT #To store the all details of the request and can be reused, so need to "register"
 
     - name: printing the uptime that collected
       debug:
           msg: "{{ OUT.stdout }}"   #In MSG, IF variable starts first then should be in "" then it works.
 
+#Above we are printing only "standard ouput in the data which we registered" , not std error,cmd,failed ..etc
 #Register -->used to take output and can be use anywhere where required
