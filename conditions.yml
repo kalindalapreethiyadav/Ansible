@@ -2,7 +2,8 @@
 
 - name: sample example on conditions
   hosts: non_prod
-  action: true
+  vars:
+    action: true
   tasks:
     - name: Only for centos machines checking
       debug:
