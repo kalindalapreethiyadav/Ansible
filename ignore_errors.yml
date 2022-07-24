@@ -5,6 +5,8 @@
       shell: ps -ef | grep "java" | grep -v grep #checking whether any process running or not
       register: OUT
       ignore_errors: yes #even if output is error it should ignore so use "ignore_errors"
+
+# ignore_errors --ignore just excute the command
     
     - name: Printing teh status and standoutput
       debug:
