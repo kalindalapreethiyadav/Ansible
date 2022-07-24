@@ -1,8 +1,8 @@
 - name: sample example on variable
   hosts: non_prod
   vars:
-    url: dev.google.com
+    URL: dev.google.com
   task:
     - name: Printing URL
       ansible.builtin.debug:
-        msg: printing the {{url}}
+        msg: printing the {{URL}}
