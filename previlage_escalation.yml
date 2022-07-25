@@ -1,5 +1,9 @@
 - name: sample example
   hosts: dev
   tasks:
-    - name: Printing URL
+    - name: Printing id command
       shell: id
+      register: OUT
+    
+    - name: Printing id command
+      msg: {{ "OUT" }}
