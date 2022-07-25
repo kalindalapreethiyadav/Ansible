@@ -5,6 +5,7 @@
     - name: Running the dev envirnment
       debug:
         msg: value is {{ item }}
+      loop:
           -10
           -120
           -30
