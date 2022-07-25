@@ -9,5 +9,6 @@
       debug:
           msg: "{{ OUT.stdout }}"   #In MSG, IF variable starts first then should be in "" then it works.
 
+#OUT is jsut a varible we are storing it can be anything 
 #Above we are printing only "standard ouput in the data which we registered" , not std error,cmd,failed ..etc
 #Register -->used to take output and can be use anywhere where required
