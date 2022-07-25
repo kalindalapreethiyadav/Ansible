@@ -4,5 +4,5 @@
   tasks:
     - name: example on copy
       copy:
-        scr: copy_testfile.conf
+        src: copy_testfile.conf
         dest: /home/centos
