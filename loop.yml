@@ -6,10 +6,10 @@
       debug:
         msg: "value is {{ item }}"
       loop:
-          -10
-          -120
-          -30
-          -40
-          -abc
+          - 10
+          - 120
+          - 30
+          - 40
+          - abc
 
 #Each and every value is refered as a "item" in loop
