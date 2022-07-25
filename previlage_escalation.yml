@@ -1,0 +1,5 @@
+- name: sample example
+  hosts: dev
+  tasks:
+    - name: Printing URL
+      shell: id
