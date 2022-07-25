@@ -16,11 +16,12 @@
     - name: Printing id command
       shell: id
       register: OUT
-    
+      become: yes   #only this task will be excuted as root
+      
     - name: Printing id command
       debug:
         msg: "{{ OUT }}"
-      become: yes   #only this task will be excuted as root
+      
 
     - name: Printing id command
       shell: id
