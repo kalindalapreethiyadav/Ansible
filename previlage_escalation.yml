@@ -6,4 +6,4 @@
       register: OUT
     
     - name: Printing id command
-      msg: {{ "OUT" }}
+      msg: "{{ OUT }}"
