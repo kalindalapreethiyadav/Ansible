@@ -13,20 +13,20 @@
 - name: sample example2
   hosts: lab
   tasks:
-    - name: Printing id command
+    - name: Printing id as root
       shell: id
       register: OUT
       become: yes   #only this task will be excuted as root
-      
-    - name: Printing id command
+
+    - name: Printing id as root 
       debug:
         msg: "{{ OUT }}"
       
 
-    - name: Printing id command
+    - name: Printing id without root
       shell: id
       register: OUT
     
-    - name: Printing id command
+    - name: Printing id without root
       debug:
         msg: "{{ OUT }}"
