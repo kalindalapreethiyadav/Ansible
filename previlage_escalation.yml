@@ -11,7 +11,7 @@
         msg: "{{ OUT }}"
 
 - name: sample example2
-  hosts: dev
+  hosts: lab
   tasks:
     - name: Printing id command
       shell: id
@@ -21,3 +21,11 @@
       debug:
         msg: "{{ OUT }}"
       become: yes   #only this task will be excuted as root
+
+    - name: Printing id command
+      shell: id
+      register: OUT
+    
+    - name: Printing id command
+      debug:
+        msg: "{{ OUT }}"
