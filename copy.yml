@@ -1,0 +1,8 @@
+
+- name: sample example on copy
+  hosts: dev
+  tasks:
+    - name: example on loop
+      copy:
+      scr: copy_testfile.conf
+      dest: /home/centos
