@@ -2,7 +2,7 @@
 - name: sample example on loop
   hosts: dev
   tasks:
-    - name: Running the dev envirnment
+    - name: example on loop
       debug:
         msg: "value is {{ item }}"
       loop:
@@ -10,5 +10,6 @@
           -120
           -30
           -40
+          -abc
 
 #Each and every value is refered as a "item" in loop
