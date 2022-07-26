@@ -1,0 +1,8 @@
+
+- name: sample example on template
+  hosts: lab
+  tasks:
+    - name: copying proxy file to remote node file
+      copy:
+        src: proxy.conf
+        dest: /tmp/fold1
