@@ -3,7 +3,7 @@
   hosts: lab
   tasks:
     - name: example on copy
-      move:
+      copy:
         src: copy_testfile.conf
-        dest: /tmp/new_copy_text.conf
+        dest: /tmp/fold1
 
