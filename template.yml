@@ -6,7 +6,7 @@
   tasks:
     - name: copying proxy file to remote node file
       template:
-        src: proxy.conf
+        src: proxy.conf #reads the HOSTNAME variable from vars: 
         dest: /tmp/fold1
 
 
