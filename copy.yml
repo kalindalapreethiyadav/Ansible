@@ -5,5 +5,5 @@
     - name: example on copy
       copy:
         src: copy_testfile.conf
-        dest: /home/Ansible/
+        dest: /tmp/
 
