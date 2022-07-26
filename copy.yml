@@ -7,3 +7,5 @@
         src: copy_testfile.conf
         dest: /tmp/fold1/test.conf
 
+#if destination path "/tmp/fold1/test.conf" with new name it will "test.conf" overwrittes.
+#if only provided the path "/tmp/fold1/" -- it copies.
