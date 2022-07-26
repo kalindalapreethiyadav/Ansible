@@ -3,6 +3,6 @@
   hosts: lab
   tasks:
     - name: copying proxy file to remote node file
-      copy:
+      template:
         src: proxy.conf
         dest: /tmp/fold1
