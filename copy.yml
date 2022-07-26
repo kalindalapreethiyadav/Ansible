@@ -9,3 +9,6 @@
 
 #if destination path "/tmp/fold1/test.conf" with new name it will "test.conf" overwrittes.
 #if only provided the path "/tmp/fold1/" -- it copies.
+
+#"Ansible is very smart it will only task action is any changes done"
+#Else it doesn't change even if we copy again again ---very smart
