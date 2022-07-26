@@ -5,5 +5,5 @@
     - name: example on copy
       copy:
         src: copy_testfile.conf
-        dest: /tmp/
+        dest: /tmp/new_copy_text.conf
 
