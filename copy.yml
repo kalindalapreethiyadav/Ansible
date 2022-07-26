@@ -1,6 +1,6 @@
 
 - name: sample example on copy
-  hosts: dev
+  hosts: lab
   tasks:
     - name: example on copy
       copy:
