@@ -1,8 +1,17 @@
 
 - name: sample example on template
   hosts: lab
+  vars:
+    HOSTNAME: google.preethi.com #Local variable 
   tasks:
     - name: copying proxy file to remote node file
       template:
         src: proxy.conf
         dest: /tmp/fold1
+
+
+#Command line variable or Run time variable passing the value of HOSTNAME as below
+
+#-->ansible-playbook -i inventory -u centos -e ansible_password=password -e HOSTNAME=preethi.goole.com  template.yml
+
+#proxy.conf is update by CLI variable (cli var > local var)
