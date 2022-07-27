@@ -1,10 +1,9 @@
 #Lets call the Roles of the Roboshop project
 - name: playbook setup of the Roboshop
-  hosts: lab
+  hosts: non_prod
   become: yes
   roles: 
     - frontend
     #- mongodb
     #- cart
     #- shipping
-     
