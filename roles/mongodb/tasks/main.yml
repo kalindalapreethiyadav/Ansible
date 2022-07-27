@@ -23,7 +23,7 @@
 - name: Disable auto shutdown and set hostname
   shell: set Disable-auto-shutdown && set-hostname {{ COMPONENT }}
 
-- name: copying the mongodb repo
+- name: Downloading & Extrcting the {{ COMPONENT}}
   ansible.builtin.copy:
     src: "{{ REPO_URL }}" #rep_url is variable that takes input from vars/main.yml
     dest: /tmp/mongodb.zip
