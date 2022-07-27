@@ -1,5 +1,6 @@
-[frontend]
+[robo]
 frontend.robotshop.internal
+mongodb.robotshop.internal
 
 [test_ip]
 172.31.82.114

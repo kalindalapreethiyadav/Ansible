@@ -1,8 +1,9 @@
 - name: playbook setup of the Roboshop
-  hosts: frontend
+  hosts: robo
   become: yes
   roles: 
     - frontend
+    - mongodb
     #- mongodb
     #- cart
     #- shipping
