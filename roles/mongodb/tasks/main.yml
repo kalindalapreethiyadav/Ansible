@@ -28,3 +28,13 @@
     src: "{{ REPO_URL }}" #rep_url is variable that takes input from vars/main.yml
     dest: /tmp/mongodb.zip
     remote_src: yes
+
+- name: Injecting the catalogue schema
+  community.mongodb.mongodb_shell:
+    file: "/tmp/mongodb-main/catalogue.js"
+    idempotent: yes
+
+- name: Injecting the user schema
+  community.mongodb.mongodb_shell:
+    file: "/tmp/mongodb-main/users.js"
+    idempotent: yes
