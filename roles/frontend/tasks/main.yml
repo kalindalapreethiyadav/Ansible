@@ -14,12 +14,14 @@
     path: /usr/share/nginx/html
     state: absent
 
+- name: COpy & move files 
+  copy:
+    src: /tmp/frontend-main/
+    dest: /usr/share/nginx/html
+    remote_src: yes
 
 
 
-#cd /usr/share/nginx/html
-# rm -rf *
-# unzip /tmp/frontend.zip#
 # mv frontend-main/* .
 # mv static/* .
 # rm -rf frontend-main README.md
