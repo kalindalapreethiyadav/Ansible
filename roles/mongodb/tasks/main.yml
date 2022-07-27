@@ -8,8 +8,14 @@
     name: mongodb-org
     state: present
 
+- name : configuration changes of listner address
+  replace: 
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
 - name: Enable & Restart service mongod
   ansible.builtin.service:
     name: mongod
-    state: restarted
-    enabled: yes
+    state: started  #DB should not restart it will impact the Application
+    enabled: yes 
