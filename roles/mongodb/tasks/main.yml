@@ -26,7 +26,7 @@
 - name: Downloading & Extrcting the {{ COMPONENT}}
   ansible.builtin.unarchive:
     src: "{{ REPO_URL }}" #rep_url is variable that takes input from vars/main.yml
-    dest: /tmp/
+    dest: /tmp
     remote_src: yes
 
 - name: Injecting the catalogue schema
