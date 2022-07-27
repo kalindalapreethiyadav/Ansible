@@ -20,9 +20,11 @@
     dest: /usr/share/nginx/html
     remote_src: yes
 
+- name: copying the proxy file
+  copy:
+    src: localhost.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+    remote_src: yes
 
 
-# mv frontend-main/* .
-# mv static/* .
-# rm -rf frontend-main README.md
 # mv localhost.conf /etc/nginx/default.d/roboshop.conf
