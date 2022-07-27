@@ -24,7 +24,7 @@
   shell: set Disable-auto-shutdown && set-hostname {{ COMPONENT }}
 
 - name: Downloading & Extrcting the {{ COMPONENT}}
-  ansible.builtin.copy:
+  ansible.builtin.unarchive:
     src: "{{ REPO_URL }}" #rep_url is variable that takes input from vars/main.yml
     dest: /tmp/mongodb.zip
     remote_src: yes
