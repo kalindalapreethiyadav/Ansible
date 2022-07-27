@@ -1,5 +1,7 @@
-[robo]
+[frontend]
 frontend.robotshop.internal
+
+[mongodb]
 mongodb.robotshop.internal
 
 [test_ip]
