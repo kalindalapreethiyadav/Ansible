@@ -4,25 +4,5 @@ frontend.robotshop.internal
 [mongodb]
 mongodb.robotshop.internal
 
-[test_ip]
-172.31.82.114
-172.31.84.241
-
-[servers12]
-server1.robotshop.internal
-server2.robotshop.internal
-
-[non_prod]
-lab.robotshop.internal
-dev.robotshop.internal
-ppe.robotshop.internal
-
-
-[lab]
-lab.robotshop.internal
-
-[dev]
-dev.robotshop.internal
-
-[ppe]
-ppe.robotshop.internal
+[catalogue]
+mongodb.robotshop.internal
