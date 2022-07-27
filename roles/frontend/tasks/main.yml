@@ -1,3 +1,6 @@
-- name: frontend tasks
-  ansible.builtin.debug:
-      msg: "This in frontend in files"
+- name: Install nginx
+  ansible.builtin.package:
+    name: nginx
+    state: present
+      
+      
