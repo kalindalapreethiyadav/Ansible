@@ -23,11 +23,10 @@
 - name: Disable auto shutdown and set hostname
   shell: set Disable-auto-shutdown && set-hostname {{ COMPONENT }}
 
-- name: Downloading & Extrcting the {{ COMPONENT}}
-  ansible.builtin.unarchive:
-    src: "{{ REPO_URL }}" #rep_url is variable that takes input from vars/main.yml
-    dest: /tmp
-    remote_src: yes
+- name: Downlaod and extract
+  ansible.builtin.include_role: # inclusing another role to use the task in another role
+    name: common #specifying another role name
+    tasks_from: downlaod #specfying the name of task file main.yml /download.yml
 
 - name: Injecting the catalogue schema
   community.mongodb.mongodb_shell:
