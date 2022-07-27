@@ -1,3 +1,9 @@
+[frontend]
+frontend.robotshop.internal
+
+
+
+
 [test_ip]
 172.31.82.114
 172.31.84.241

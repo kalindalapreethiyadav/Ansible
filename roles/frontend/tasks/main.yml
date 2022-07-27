@@ -1,0 +1,5 @@
+- name: Fronend tasks
+  hosts: frontend
+  tasks:
+    debug:
+      msg: "This in frontend in files"
