@@ -9,10 +9,12 @@
     dest: /tmp
     remote_src: yes #we use "yes" if src is not in local repository
 
-- name: Remove file (delete file)
+- name: cleaning up files
   ansible.builtin.file:
     path: /usr/share/nginx/html
     state: absent
+
+
 
 
 #cd /usr/share/nginx/html
