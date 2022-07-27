@@ -21,4 +21,4 @@
     enabled: yes 
 
 - name: Disable-auto-shutdown & set-hostname
-  shell: set Disable-auto-shutdown & set-hostname "{{ COMPONENT }}""
+  shell: set Disable-auto-shutdown && set-hostname "{{ COMPONENT }}""
