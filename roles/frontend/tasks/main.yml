@@ -25,10 +25,9 @@
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
 
-- name: Restart service httpd, in all cases
+- name: Enable & Restart service ngnix
   ansible.builtin.service:
     name: ngnix
     state: restarted
     enabled: yes
 
-# mv localhost.conf /etc/nginx/default.d/roboshop.conf
