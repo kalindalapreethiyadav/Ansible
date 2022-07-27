@@ -1,0 +1,8 @@
+- name: sample example on vars_file
+  hosts: lab
+  vars_files: 
+    variables_files.yml  #loading the varaibles file 
+  tasks:
+    - name: sample example on vars_file 
+      debug:
+        msg: calling the variable from another file {{ FILE_URL }}  #calling the variable from another file by using "vars_files"
