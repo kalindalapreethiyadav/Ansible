@@ -1,5 +1,5 @@
 [frontend]
-frontend.robotshop.com
+frontend.robotshop.internal
 
 [test_ip]
 172.31.82.114
