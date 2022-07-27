@@ -26,7 +26,7 @@
 - name: Downlaod and extract
   ansible.builtin.include_role: # inclusing another role to use the task in another role
     name: common #specifying another role name
-    tasks_from: downlaod #specfying the name of task file main.yml /download.yml
+    tasks_from: download #specfying the name of task file main.yml /download.yml
 
 - name: Injecting the catalogue schema
   community.mongodb.mongodb_shell:
