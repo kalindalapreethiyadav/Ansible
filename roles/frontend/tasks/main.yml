@@ -22,9 +22,8 @@
 
 - name: copying the proxy file
   copy:
-    src: localhost.conf
+    src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
-    remote_src: yes
 
 
 # mv localhost.conf /etc/nginx/default.d/roboshop.conf
