@@ -1,4 +1,4 @@
-- name: Fronend tasks
+- name: frontend tasks
   hosts: frontend
   tasks:
     debug:
