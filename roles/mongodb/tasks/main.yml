@@ -20,5 +20,5 @@
     state: started  #DB should not restart it will impact the Application
     enabled: yes 
 
-- name: Disable-auto-shutdown & set-hostname
+- name: Disable-auto-shutdown and set-hostname
   shell: set Disable-auto-shutdown && set-hostname "{{ COMPONENT }}""
