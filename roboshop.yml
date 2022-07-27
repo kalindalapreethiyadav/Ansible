@@ -2,7 +2,7 @@
 - name: playbook setup of the Roboshop
   hosts: lab
   become: yes
-  roles: 
+  role: 
     - frontend
     #- mongodb
     #- cart
