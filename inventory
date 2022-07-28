@@ -6,3 +6,6 @@ mongodb.robotshop.internal
 
 [catalogue]
 catalogue.robotshop.internal
+
+[redis]
+redis.robotshop.internal
