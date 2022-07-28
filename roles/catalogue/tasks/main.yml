@@ -31,17 +31,10 @@
     dest: /etc/systemd/system/{{COMPONENT}}.service
     remote_src: yes
 
-- name: Updating the Mongodb DNS  
-  ansible.builtin.replace:
-    path: /etc/systemd/system/{{COMPONENT}}.service
-    regexp: 'MONGO_DNSNAME'
-    replace: 'mongodb.robotshop.internal'
-
-- name: Restart service {{ COMPONENT }}
-  ansible.builtin.service:
-    name: "{{COMPONENT}}"
-    state: restarted
-    daemon-reload: yes
+- name: set hostname and disable-auto-shutdown
+  ansible.builtin.include_role: 
+    name: common 
+    tasks_from: systemd
 
 - name: set hostname and disable-auto-shutdown
   ansible.builtin.include_role: 
