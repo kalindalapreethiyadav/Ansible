@@ -1,7 +1,7 @@
-- name:  Configuring the Repos
+- name: Configuring the Repos
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
-- name: Installing Nodejs and GCC C++
+- name: Installing {{ COMPONENT }}
   ansible.builtin.package: 
     name: 
       - nodejs
