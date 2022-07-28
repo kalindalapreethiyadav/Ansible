@@ -2,14 +2,3 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: nodejs
-
-- name: copying the configuration systemd file
-  copy:
-    src: systemd.service
-    dest: /etc/systemd/system/user.service
-
-- name: Restart service {{ COMPONENT }}
-  ansible.builtin.service:
-    name: "{{COMPONENT}}"
-    state: restarted
-    daemon-reload: yes
