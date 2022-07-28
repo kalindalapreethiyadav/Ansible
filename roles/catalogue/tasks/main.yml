@@ -1,0 +1,24 @@
+- name:  Configuring the Repos
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+- name: Installing Nodejs and GCC C++
+  ansible.builtin.package: 
+    name: 
+      - nodejs
+      - gcc-c++
+
+- name: creating the app user {{ APPUSER }}
+  ansible.builtin.user:
+    name: "{{ APPUSER }}"
+
+- name: Downlaod and extract
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
+
+
+
+
+ curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+# yum install nodejs -y
