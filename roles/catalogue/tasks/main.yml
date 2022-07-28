@@ -18,8 +18,13 @@
 
 - name: Remove file (delete file)
   ansible.builtin.file:
-    path: /home/roboshop/{{COMPONENT}}
+    path: /home/{{APPUSER}}/{{COMPONENT}}
     state: absent
+
+- name: Copying the file 
+  ansible.builtin.copy:
+    src: /tmp/catalogue-main
+    dest: /home/roboshop/catalogue
 
 - name: Installing "{{ COMPONENT }}""
   ansible.builtin.package: 
