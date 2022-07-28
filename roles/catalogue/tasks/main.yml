@@ -41,7 +41,7 @@
   ansible.builtin.service:
     name: "{{COMPONENT}}"
     state: restarted
-  daemon-reload: yes
+    daemon-reload: yes
 
 - name: set hostname and disable-auto-shutdown
   ansible.builtin.include_role: 
