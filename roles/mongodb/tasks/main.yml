@@ -25,9 +25,6 @@
     name: common #specifying another role name
     tasks_from: set-hostname #specfying the name of task file main.yml /download.yml
 
-
-
-
 - name: Downlaod and extract
   ansible.builtin.include_role: # inclusing another role to use the task in another role
     name: common #specifying another role name
