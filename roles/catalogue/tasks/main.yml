@@ -21,7 +21,7 @@
     path: /home/roboshop/{{COMPONENT}}
     state: absent
 
-- name: Installing {{ COMPONENT }}
+- name: Installing "{{ COMPONENT }}""
   ansible.builtin.package: 
     name: npm
   state: present
