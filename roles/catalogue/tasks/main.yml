@@ -37,12 +37,13 @@
     regexp: 'MONGO_DNSNAME'
     replace: 'mongodb.robotshop.internal'
 
-- name: set hostname and disable-auto-shutdown
-  ansible.builtin.include_role: 
-    name: common 
-    tasks_from: set-hostname 
-
 - name: Restart service {{COMPONENT}}
   ansible.builtin.service:
     name: "{{COMPONENT}}"
     state: restarted
+  daemon-reload: yes
+
+- name: set hostname and disable-auto-shutdown
+  ansible.builtin.include_role: 
+    name: common 
+    tasks_from: set-hostname 
