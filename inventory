@@ -9,3 +9,6 @@ catalogue.robotshop.internal
 
 [redis]
 redis.robotshop.internal
+
+[cart]
+cart.robotshop.internal
