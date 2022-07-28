@@ -21,4 +21,7 @@
     name: common
     tasks_from: cleanup
 
+- name: Install packages based on package.json.
+  community.general.npm:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/
 
