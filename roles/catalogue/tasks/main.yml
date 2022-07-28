@@ -26,7 +26,3 @@
     src: /tmp/catalogue-main
     dest: /home/roboshop/catalogue
 
-- name: Installing "{{ COMPONENT }}""
-  ansible.builtin.package: 
-    name: npm
-  state: present
