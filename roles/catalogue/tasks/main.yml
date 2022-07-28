@@ -15,10 +15,3 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: download
-
-
-
-
-
- #curl -sL https://rpm.nodesource.com/setup_lts.x | bash
-# yum install nodejs -y
