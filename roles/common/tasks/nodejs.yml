@@ -1,0 +1,42 @@
+- name: Configuring the Repos
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+
+- name: Installing {{ COMPONENT }}
+  ansible.builtin.package: 
+    name: 
+      - nodejs
+      - gcc-c++
+
+- name: creating the app user {{ APPUSER }}
+  ansible.builtin.user:
+    name: "{{ APPUSER }}"
+
+- name: Downlaod and extract
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
+- name: Remove and copying
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: cleanup
+
+- name: Install packages based on package.json.
+  community.general.npm:
+    path: /home/{{APPUSER}}/{{COMPONENT}}/
+
+- name: Copying the file 
+  ansible.builtin.copy:
+    src: /home/{{APPUSER}}/{{COMPONENT}}/systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+    remote_src: yes
+
+- name: set hostname and disable-auto-shutdown
+  ansible.builtin.include_role: 
+    name: common 
+    tasks_from: systemd
+
+- name: set hostname and disable-auto-shutdown
+  ansible.builtin.include_role: 
+    name: common 
+    tasks_from: set-hostname 
