@@ -1,4 +1,4 @@
-- name: Remove and copying
+- name: Installing {{ COMPONENT }}
   ansible.builtin.include_role:
     name: common
     tasks_from: nodejs
