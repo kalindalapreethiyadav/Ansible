@@ -5,4 +5,4 @@ frontend.robotshop.internal
 mongodb.robotshop.internal
 
 [catalogue]
-mongodb.robotshop.internal
+catalogue.robotshop.internal
