@@ -12,3 +12,6 @@ redis.robotshop.internal
 
 [cart]
 cart.robotshop.internal
+
+[user]
+user.robotshop.internal
