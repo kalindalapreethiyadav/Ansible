@@ -25,3 +25,25 @@
   community.general.npm:
     path: /home/{{APPUSER}}/{{COMPONENT}}/
 
+- name: Copying the file 
+  ansible.builtin.copy:
+    src: /home/{{APPUSER}}/{{COMPONENT}}/systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+    remote_src: yes
+
+- name: Updating the Mongodb DNS  
+  ansible.builtin.replace:
+    before: MONGO_DNSNAME
+    after: mongodb.robotshop.internal
+
+- name: set hostname and disable-auto-shutdown
+  ansible.builtin.include_role: 
+    name: common 
+    tasks_from: set-hostname 
+
+
+# mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+# systemctl daemon-reload
+# systemctl start catalogue
+# systemctl enable catalogue
+# systemctl status catalogue -l
