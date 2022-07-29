@@ -25,11 +25,6 @@
   community.general.npm:
     path: /home/{{APPUSER}}/{{COMPONENT}}/
     
-- name: configuring the systemd file
-  ansible.builtin.: 
-    name: common 
-    tasks_from: systemd
-
 - name: set hostname and disable-auto-shutdown
   ansible.builtin.include_role: 
     name: common 
