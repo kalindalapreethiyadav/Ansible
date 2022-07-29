@@ -5,5 +5,5 @@
 
 - name: configuring systemd files
   ansible.builtin.copy:
-    src: systemd.service
+    src: "{{COMPONENT}}.service"
     dest: /etc/systemd/system/{{COMPONENT}}.service
