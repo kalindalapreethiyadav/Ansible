@@ -24,7 +24,12 @@
 - name: Install packages based on package.json.
   community.general.npm:
     path: /home/{{APPUSER}}/{{COMPONENT}}/
-    
+
+- name: configuring systemd files
+  ansible.builtin.copy:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
 - name: set hostname and disable-auto-shutdown
   ansible.builtin.include_role: 
     name: common 
