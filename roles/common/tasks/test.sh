@@ -2,6 +2,8 @@
 
 #!/bin/bash
 filepath=$(cat filepath.txt)
+filelist=$(cat files_list.txt)
+Dirlist=$(cat dir_list.txt)
 
 dummy_fcheck()
 {
@@ -22,22 +24,10 @@ dir_func()
 echo -e "$1 \n"
 }
 
-file_func()
+files_func()
 {
 echo -e "$1 \n"
 }
-
-for dire in $(cat dufiles.txt)
-do
-files_func "$dire"
-done
-
-
-
-for fil in $(cat dufiles.txt)
-do
-dir_func "$fil"
-done
 
 for line in $filepath
 do
@@ -45,10 +35,34 @@ do
 #calling functions
 dummy_fcheck "$line"
 highused_files "$line"
-awk -F ' ' '{print $NF}' dufiles.txt > dufiles.txt
-awk -F ' ' '{print $NF}' dufiles.txt > dudir.txt
+awk -F ' ' '{print $NF}' dufiles.txt > files_list.txt
+awk -F ' ' '{print $NF}' dudir.txt > dir_list.txt
 
-
-echo -e "\e[32m *******Succesfully completed***********\n \e[0m"
+for i in $filelist do
+dir_func "$i"
 done
+
+for j in $Dirlist do
+files_func "$j"
+done
+
+done
+echo -e "\e[32m *******Succesfully completed***********\n \e[0m"
 exit 0
+
+
+cd $1
+fsize=$( stat -c %s $1)
+find . fsize > 200GB -ctime -15 -ls && return $TRUE || return $FALSE
+# return $TRUE (0) if file found 
+# return $FALSE (1) if file not found
+
+[ -f "$1" ] && return $TRUE || return $FALSE
+}
+if [ $? -eq 0 ]
+then
+	echo "$file added to backup task"
+else
+	echo "$file not found."
+fi
+cd $1
