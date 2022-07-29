@@ -30,7 +30,7 @@
       ansible.builtin.shell: grep "temporary password" /var/log/mysqld.log | awk '{print $NF}'
       register: DEFAULT_ROOT_PASSWORD    
 
-    - name: New password storing in a file 
+    - name: New passwd storing in a file 
       ansible.builtin.copy:
       src: rootpass.sql
       dest: /tmp/rootpass.sql
