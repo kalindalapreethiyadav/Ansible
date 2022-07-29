@@ -11,24 +11,30 @@
   ansible.builtin.user:
     name: "{{ APPUSER }}"
 
-- name: Downlaod and extract
+- name: Downlaod and extract to {{ COMPONENT }} folder
   ansible.builtin.include_role:
     name: common
     tasks_from: download
 
-- name: Remove and copying
+- name: Old files Removal and copying files to {{ COMPONENT }} folder
   ansible.builtin.include_role:
     name: common
     tasks_from: cleanup
 
-- name: Install packages based on package.json.
+- name: downloading npm
   community.general.npm:
     path: /home/{{APPUSER}}/{{COMPONENT}}/
 
 - name: configuring systemd files
   ansible.builtin.copy:
-    src: systemd.service
+    src: "{{COMPONENT}}.service"
     dest: /etc/systemd/system/{{COMPONENT}}.service
+
+- name: Restart service {{ COMPONENT }}
+  ansible.builtin.service:
+    name: "{{COMPONENT}}"
+    state: restarted
+    daemon-reload: yes
 
 - name: set hostname and disable-auto-shutdown
   ansible.builtin.include_role: 
