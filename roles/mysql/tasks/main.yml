@@ -1,7 +1,7 @@
 - name: copying the mongodb repo
   ansible.builtin.copy:
     src: "{{COMPONENT}}.repo"
-    dest: /etc/yum.repos.d/mysql.repo
+    dest: /etc/yum.repos.d/{{COMPONENT}}.repo
 
 - name: Install mongodb
   ansible.builtin.package:
