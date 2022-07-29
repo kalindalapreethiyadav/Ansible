@@ -2,3 +2,8 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: nodejs
+
+- name: configuring systemd files
+  ansible.builtin.copy:
+    src: catalogue.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service

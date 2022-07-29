@@ -25,11 +25,6 @@
   community.general.npm:
     path: /home/{{APPUSER}}/{{COMPONENT}}/
 
-- name: configuring systemd files
-  ansible.builtin.copy:
-    src: "{{COMPONENT}}.service"
-    dest: /etc/systemd/system/{{COMPONENT}}.service
-
 - name: Restart service {{ COMPONENT }}
   ansible.builtin.service:
     name: "{{COMPONENT}}"
