@@ -16,6 +16,59 @@
     state: started  #DB should not restart it will impact the Application
     enabled: yes 
 
-- name: checking Mysql connection
-  ansible.builtin.mysql_info:
-    login_user: root
+- name: Check the DB Password 
+  community.mysql.mysql_info:
+    login_user: root 
+    login_password: RoboShop@1
+    ignore_errors: yes
+  register: mysql_stat 
+
+- name : resetting the password
+  when: mysql_stat.failed
+  block:
+    - name: Resetting the DB Passwprd
+      ansible.builtin.shell: grep "temporary password" /var/log/mysqld.log | awk '{print $NF}'
+      register: DEFAULT_ROOT_PASSWORD    
+
+    - name: New password storing in a file 
+      ansible.builtin.copy:
+      src: rootpass.sql
+      dest: /tmp/rootpass.sql
+
+    - name: changing the password
+      ansible.builtin.shell: mysql  --connect-expired-password -uroot -p"{{DEFAULT_ROOT_PASSWORD.stdout}}"  < /tmp/rootpass.sql
+  
+
+- name : Uninsatlling Validation Pulgin
+  ansible.builtin.shell: show plugins | mysql -uroot -pRoboShop@1 2>> $LOGFILE | grep "validate_password"
+  register: pulgin_stat  
+
+- name: Unstalling now Plugin
+  when: pulgin_stat == 0
+  block:
+    - name: storing the SQL uninstall pulgin command 
+      ansible.builtin.copy:
+      src: plugin_unistall_cmd_validation.sql
+      dest: /tmp/plugin_unistall_cmd_validation.sql
+
+    - name: changing the password
+      ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/plugin_unistall_cmd_validation.sql
+
+   
+- name: Download and extracting {{COMPONENT}} Schema
+  ansible.builtin.include_role:
+    name: common 
+    tasks_from: download 
+
+- name: Load Schema 
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    login_user: root 
+    login_password: RoboShop@1
+    target: /tmp/mysql-main/shipping.sql 
+
+- name: Set-hostname 
+  ansible.builtin.include_role:
+    name: common 
+    tasks_from: set-hostname 
