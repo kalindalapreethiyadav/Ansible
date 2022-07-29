@@ -23,7 +23,7 @@
     ignore_errors: yes
   register: mysql_stat 
 
-- name : resetting the password
+- name: resetting the password
   when: mysql_stat.failed
   block:
     - name: Resetting the DB Passwprd
