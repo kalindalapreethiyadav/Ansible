@@ -24,15 +24,9 @@
 - name: Install packages based on package.json.
   community.general.npm:
     path: /home/{{APPUSER}}/{{COMPONENT}}/
-
-- name: Copying the file 
-  ansible.builtin.copy:
-    src: /home/{{APPUSER}}/{{COMPONENT}}/systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
-    remote_src: yes
-
+    
 - name: configuring the systemd file
-  ansible.builtin.include_role: 
+  ansible.builtin.: 
     name: common 
     tasks_from: systemd
 

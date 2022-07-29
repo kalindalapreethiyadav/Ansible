@@ -27,3 +27,7 @@
     state: started 
     enabled: yes 
 
+- name: set hostname and disable-auto-shutdown
+  ansible.builtin.include_role: 
+    name: common 
+    tasks_from: set-hostname 

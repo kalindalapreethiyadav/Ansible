@@ -30,7 +30,7 @@
     name: common #specifying another role name
     tasks_from: download #specfying the name of task file main.yml /download.yml
 
-- name: Injecting the catalogue schema
+- name: Injecting the catalogue & user schema
   community.mongodb.mongodb_shell:
     file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
