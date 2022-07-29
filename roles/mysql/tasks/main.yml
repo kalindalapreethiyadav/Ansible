@@ -1,12 +1,14 @@
-- name: Configuring the {{COMPONENT}} repository
+- name: copying the {{COMPONENT}} repo 
   ansible.builtin.copy:
-    src: mysql.repo
-    dest: /etc/yum.repos.d/{{COMPONENT}}.repo
-
-- name: Install {{COMPONENT}}
+     src: mysql.repo 
+     dest: /etc/yum.repos.d/mysql.repo 
+ 
+- name: Installing {{COMPONENT}} 
   ansible.builtin.package:
-    name: mysql-community-server
-    state: present
+    name: 
+       - mysql-community-server
+       - MySQL-python
+    state: present 
 
 - name: Enable & Restart service {{COMPONENT}}
   ansible.builtin.service:
