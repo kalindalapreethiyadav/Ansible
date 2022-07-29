@@ -44,7 +44,7 @@
   register: pulgin_stat  
 
 - name: Unstalling now Plugin
-  when: pulgin_stat == 0
+  when: pulgin_stat.rc == 0
   block:
     - name: storing the SQL uninstall pulgin command 
       ansible.builtin.copy:
