@@ -3,5 +3,13 @@
     src: mysql.repo
     dest: /etc/yum.repos.d/mysql.repo
 
-
-# curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stans-robot-project/mysql/main/mysql.repo
+- name: Install mongodb
+  ansible.builtin.package:
+    name: mysql-community-server
+    state: present
+    
+- name: Enable & Restart service {{COMPONENT}}
+  ansible.builtin.service:
+    name: mongod
+    state: started  #DB should not restart it will impact the Application
+    enabled: yes 
