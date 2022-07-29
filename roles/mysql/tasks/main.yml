@@ -1,15 +1,21 @@
 - name: copying the mongodb repo
   ansible.builtin.copy:
-    src: mysql.repo
+    src: "{{COMPONENT}}.repo"
     dest: /etc/yum.repos.d/mysql.repo
 
 - name: Install mongodb
   ansible.builtin.package:
-    name: mysql-community-server
+    name: 
+      - mysql-community-server
+      - My
     state: present
-    
+
 - name: Enable & Restart service {{COMPONENT}}
   ansible.builtin.service:
     name: mongod
     state: started  #DB should not restart it will impact the Application
     enabled: yes 
+
+- name: checking Mysql connection
+  mysql_info:
+    login_user: root
