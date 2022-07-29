@@ -7,6 +7,7 @@
   ansible.builtin.package:
     name: 
        - mysql-community-server
+       - MySQL-python
     state: present 
 
 - name: Enable & Restart service {{COMPONENT}}
