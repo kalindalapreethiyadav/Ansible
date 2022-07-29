@@ -41,7 +41,8 @@
 
 - name : Uninsatlling Validation Pulgin
   ansible.builtin.shell: show plugins | mysql -uroot -pRoboShop@1 2>> $LOGFILE | grep "validate_password"
-  register: pulgin_stat  
+  register: pulgin_stat
+  ignore_errors: yes   
 
 - name: Unstalling now Plugin
   when: pulgin_stat.rc == 0
