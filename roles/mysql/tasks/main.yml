@@ -55,7 +55,7 @@
     - name: changing the password
       ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/plugin_unistall_cmd_validation.sql
 
-   
+       
 - name: Download and extracting {{COMPONENT}} Schema
   ansible.builtin.include_role:
     name: common 
