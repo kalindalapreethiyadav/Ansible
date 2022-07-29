@@ -14,7 +14,7 @@
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 
-- name: Enable & Restart service mongod
+- name: Enable & Restart service {{COMPONENT}}
   ansible.builtin.service:
     name: mongod
     state: started  #DB should not restart it will impact the Application
