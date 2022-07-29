@@ -11,7 +11,7 @@
 
 - name: Enable & Restart service {{COMPONENT}}
   ansible.builtin.service:
-    name: {{COMPONENT}}
+    name: "{{COMPONENT}}"
     state: started  #DB should not restart it will impact the Application
     enabled: yes 
 
