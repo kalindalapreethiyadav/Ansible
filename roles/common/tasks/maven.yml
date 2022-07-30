@@ -1,0 +1,41 @@
+- name: Installing Maven
+  ansible.builtin.package:
+    name: maven
+    state: present
+  
+
+- name: creating the app user {{ APPUSER }}
+  ansible.builtin.user:
+    name: "{{ APPUSER }}"
+
+- name: Downlaod and extract to {{ COMPONENT }} folder
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
+- name: Old files Removal and copying files to {{ COMPONENT }} folder
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: cleanup
+
+- name: cleaning up mvn packages & moving jar files 
+  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+  args: 
+    chdir: /home/{{APPUSER}}/{{COMPONENT}}/ 
+  become_user: "{{APPUSER}}"
+
+- name: Old files Removal and copying files to {{ COMPONENT }} folder
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd
+
+- name: Restart service {{ COMPONENT }}
+  ansible.builtin.service:
+    name: "{{COMPONENT}}"
+    state: restarted
+    daemon-reload: yes
+
+- name: set hostname and disable-auto-shutdown
+  ansible.builtin.include_role: 
+    name: common 
+    tasks_from: set-hostname 
