@@ -36,7 +36,7 @@
         dest: /tmp/rootpass.sql
 
     - name: changing the password
-      ansible.builtin.shell: mysql  --connect-expired-password -uroot -p"{{DEFAULT_ROOT_PASSWORD.stdout}}"  < /tmp/rootpass.sql
+      ansible.builtin.shell: mysql  --connect-expired-password -uroot -p"RoboShop@1"  < /tmp/rootpass.sql
   
 
 - name : Uninsatlling Validation Pulgin
