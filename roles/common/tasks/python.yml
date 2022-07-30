@@ -6,10 +6,10 @@
       - python3-devel
     state: present 
 
-- name: App user {{APPUSER}} User Creation
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: "{{ APPUSER }}"
+
+- name: creating the app user {{ APPUSER }}
+  ansible.builtin.user:
+    name: "{{ APPUSER }}"
 
 - name: Download and extracting {{COMPONENT}}
   ansible.builtin.include_role:
