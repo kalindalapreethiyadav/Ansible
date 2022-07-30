@@ -19,7 +19,7 @@
 - name: Check the DB Password 
   community.mysql.mysql_info:
     login_user: root 
-    login_password: RoboShop@1**
+    login_password: RoboShop@1
   ignore_errors: yes
   register: mysql_stat 
 
@@ -36,11 +36,11 @@
         dest: /tmp/rootpass.sql
 
     - name: changing the password
-      ansible.builtin.shell: mysql  --connect-expired-password -uroot -p"RoboShop@1"  < /tmp/rootpass.sql
+      ansible.builtin.shell: mysql  --connect-expired-password -uroot -p"{{DEFAULT_ROOT_PASSWORD.stdout}}"  < /tmp/rootpass.sql
   
 
 - name : Uninsatlling Validation Pulgin
-  ansible.builtin.shell: show plugins | mysql -uroot -pRoboShop@1** 2>> $LOGFILE | grep "validate_password"
+  ansible.builtin.shell: show plugins | mysql -uroot -pRoboShop@1 2>> $LOGFILE | grep "validate_password"
   register: pulgin_stat
   ignore_errors: yes   
 
@@ -53,7 +53,7 @@
         dest: /tmp/plugin_unistall_cmd_validation.sql
 
     - name: changing the password
-      ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1** < /tmp/plugin_unistall_cmd_validation.sql
+      ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/plugin_unistall_cmd_validation.sql
 
        
 - name: Download and extracting {{COMPONENT}} Schema
@@ -63,10 +63,10 @@
 
 - name: Load Schema 
   community.mysql.mysql_db:
-    name: all
     state: import
+    name: all
     login_user: root 
-    login_password: RoboShop@1**
+    login_password: RoboShop@1
     target: /tmp/mysql-main/shipping.sql 
 
 - name: Set-hostname 
