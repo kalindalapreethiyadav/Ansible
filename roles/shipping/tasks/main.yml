@@ -3,3 +3,18 @@
     name: maven
     state: present
   
+
+- name: creating the app user {{ APPUSER }}
+  ansible.builtin.user:
+    name: "{{ APPUSER }}"
+
+- name: Downlaod and extract to {{ COMPONENT }} folder
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
+- name: Old files Removal and copying files to {{ COMPONENT }} folder
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: cleanup
+
