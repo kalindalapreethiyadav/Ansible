@@ -1,5 +1,5 @@
-- name: Downloading & Extrcting the {{ COMPONENT}}
+- name: Downloading & Extract the {{ COMPONENT}}
   ansible.builtin.unarchive:
     src: "{{ REPO_URL }}" #rep_url is variable that takes input from vars/main.yml
-    dest: /tmp
+    dest: /tmp/
     remote_src: yes
