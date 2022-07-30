@@ -9,7 +9,7 @@
 - name: App user {{APPUSER}} User Creation
   ansible.builtin.include_role:
     name: common
-    tasks_from: create-user
+    tasks_from: "{{ APPUSER }}"
 
 - name: Download and extracting {{COMPONENT}}
   ansible.builtin.include_role:
@@ -25,10 +25,6 @@
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
     executable: pip3
-
-# - name: Printing the APPUSER output 
-#   debug:
-#     msg: "{{APPUSER_REGISTER}}"
 
 - name: Update uid in APP Config 
   ansible.builtin.lineinfile:
