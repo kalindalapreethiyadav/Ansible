@@ -1,21 +1,2 @@
 
-#Fact --is the ansible host server gathers all the property of the target nodes, before excuting the tasks is called "gathering facts"
-
-#-->$ansible all -i inventory -u centos -e ansible_password=password -m setup
-
-#SETUP MOdule - automatically called by playbooks to gather useful variables about remote hosts that can be used in playbooks. It can also be executed directly by /usr/bin/ansible to check what variables are available to a host. 
-#Ansible provides many facts about the system, automatically.
-
-#- name: sample example on variable
-- name: sample example on variable
-  hosts: non_prod
-  tasks:
-    - name: Printing URL
-      ansible.builtin.debug:
-        msg: printing the {{ ansible_default_ipv4.address }}
-
-# ansible_default_ipv4 --this varibale and "address =172.31.94.53" thsi collected by ansible
-#printed the value like above can fetch as required.
-
-
 

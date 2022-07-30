@@ -1,0 +1,16 @@
+- name: Configuring the Yum Repos 
+  ansible.builtin.shell: curl -s {{RABBITMQ_URL}} | sudo bash 
+
+- name: Configuring the Yum Repos 
+  ansible.builtin.shell: curl -s {{RABBITMQ_REPO}} | sudo bash 
+
+- name: Install mongodb
+  ansible.builtin.package:
+    name: rabbitmq-server
+    state: present
+
+- name: Enable & Restart service {{COMPONENT}}
+  ansible.builtin.service:
+    name: rabbitmq-server 
+    state: started  #DB should not restart it will impact the Application
+    enabled: yes 
