@@ -38,22 +38,22 @@
     - name: changing the password
       ansible.builtin.shell: mysql  --connect-expired-password -uroot -p"{{DEFAULT_ROOT_PASSWORD.stdout}}"  < /tmp/rootpass.sql
   
+- name: Check validate password plugin is removed or not 
+  ansible.builtin.shell: echo show plugins | mysql -uroot -pRoboShop@1** | grep validate_password
+  register: plug_info
+  ignore_errors: yes 
 
-- name : Uninsatlling Validation Pulgin
-  ansible.builtin.shell: show plugins | mysql -uroot -pRoboShop@1** 2>> $LOGFILE | grep validate_password
-  register: pulgin_stat
-  ignore_errors: yes   
-
-- name: Unstalling now Plugin
-  when: pulgin_stat.rc == 0
+- name: Uninstall Password Validate Plugin  
+  when: plug_info.rc == 0 
   block:
-    - name: storing the SQL uninstall pulgin command 
+    - name: Copy the SQL Password to tmp file 
       ansible.builtin.copy:
         src: plugin_unistall_cmd_validation.sql
-        dest: /tmp/plugin_validation.sql
+        dest: /tmp/password-validate.sql 
+        
+    - name: Uninstall the plugin 
+      ansible.builtin.shell: mysql  --connect-expired-password -uroot -pRoboShop@1** < /tmp/password-validate.sql 
 
-    - name: changing the password
-      ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1** < /tmp/plugin_validation.sql
 
 - name: Download and extracting {{COMPONENT}} Schema
   ansible.builtin.include_role:
