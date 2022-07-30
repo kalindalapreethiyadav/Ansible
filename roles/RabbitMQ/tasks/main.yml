@@ -1,7 +1,7 @@
 - name: Configuring the Yum Repos 
   ansible.builtin.shell: curl -s {{RABBITMQ_URL}} | sudo bash 
 
-- name: Installing Errlang and {{COMPONENT}} 
+- name: Installing Errlang and rabbitmq
   ansible.builtin.package:
     name:  
       - "{{ERLANG_URL}}"
