@@ -18,6 +18,11 @@
     name: common
     tasks_from: cleanup
 
+- name: Generating the articact 
+  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+  args: 
+    chdir: /home/{{APPUSER}}/{{COMPONENT}}/ 
+  become_user: "{{APPUSER}}"
 
 - name: Old files Removal and copying files to {{ COMPONENT }} folder
   ansible.builtin.include_role:
