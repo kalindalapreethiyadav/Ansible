@@ -28,6 +28,6 @@ payment.robotshop.internal
 [dispatch]
 dispatch.robotshop.internal
 
-[RabbitMQ]
-dispatch.robotshop.internal
+[rabbitmq]
+rabbitmq.robotshop.internal
 
