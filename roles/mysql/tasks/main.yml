@@ -40,7 +40,7 @@
   
 
 - name : Uninsatlling Validation Pulgin
-  ansible.builtin.shell: show plugins | mysql -uroot -pRoboShop@1 2>> $LOGFILE | grep "validate_password"
+  ansible.builtin.shell: show plugins | mysql -uroot -pRoboShop@1 2>> $LOGFILE | grep validate_password
   register: pulgin_stat
   ignore_errors: yes   
 
@@ -55,7 +55,6 @@
     - name: changing the password
       ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/plugin_unistall_cmd_validation.sql
 
-       
 - name: Download and extracting {{COMPONENT}} Schema
   ansible.builtin.include_role:
     name: common 
