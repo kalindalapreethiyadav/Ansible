@@ -61,8 +61,13 @@
     name: common 
     tasks_from: download 
 
-- name: re-loading the shipping data to DB
-  shell: mysql -u root -pRoboShop@1 <shipping.sql
+- name: Load Schema 
+  community.mysql.mysql_db:
+    name: all
+    state: import
+    login_user: root 
+    login_password: RoboShop@1
+    target: /tmp/mysql-main/shipping.sql 
 
 - name: Set-hostname 
   ansible.builtin.include_role:
