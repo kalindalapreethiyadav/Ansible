@@ -18,3 +18,16 @@ user.robotshop.internal
 
 [mysql]
 mysql.robotshop.internal
+
+[shipping]
+shipping.robotshop.internal
+
+[payment]
+payment.robotshop.internal
+
+[dispatch]
+dispatch.robotshop.internal
+
+[RabbitMQ]
+dispatch.robotshop.internal
+
