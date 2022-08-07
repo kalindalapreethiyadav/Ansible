@@ -18,9 +18,9 @@
     tasks_from: cleanup
 
 - name: Old files Removal and copying files to {{ COMPONENT }} folder
-  ansible.builtin.include_role:
+  ansible.builtin.shell: cd dispatch ; go mod init dispatch ; go get ; go build 
     name: common
-    tasks_from: systemd
+    tasks_from: cleanup
 
 - name: Restart service {{ COMPONENT }}
   ansible.builtin.service:
