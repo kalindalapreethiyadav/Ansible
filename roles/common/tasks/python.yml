@@ -10,6 +10,7 @@
 - name: creating the app user {{ APPUSER }}
   ansible.builtin.user:
     name: "{{ APPUSER }}"
+  register: APPUSER_REGISTER
 
 - name: Download and extracting {{COMPONENT}}
   ansible.builtin.include_role:
@@ -25,10 +26,6 @@
   ansible.builtin.pip:
     requirements: /home/{{APPUSER}}/{{COMPONENT}}/requirements.txt
     executable: pip3
-- name: creating the app user {{ APPUSER }}
-  ansible.builtin.user:
-    name: "{{ APPUSER }}"
-    register: APPUSER_REGISTER
 
 - name: Update uid in APP Config 
   ansible.builtin.lineinfile:
