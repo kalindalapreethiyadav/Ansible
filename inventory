@@ -1,25 +1,25 @@
-[frontend]
+[frontend-dev]
 frontend.robotshop.internal
 
-[mongodb]
+[mongodb-dev]
 mongodb.robotshop.internal
 
-[catalogue]
+[catalogue-dev]
 catalogue.robotshop.internal
 
-[redis]
+[redis-dev]
 redis.robotshop.internal
 
-[cart]
+[cart-dev]
 cart.robotshop.internal
 
-[user]
+[user-dev]
 user.robotshop.internal
 
-[mysql]
+[mysql-dev]
 mysql.robotshop.internal
 
-[shipping]
+[shipping-dev]
 shipping.robotshop.internal
 
 [payment]
