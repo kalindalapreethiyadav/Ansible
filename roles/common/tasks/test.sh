@@ -1,68 +1,107 @@
 
 
 #!/bin/bash
+
+exec 1> fcheck_log.txt 2>&1
+
 filepath=$(cat filepath.txt)
 filelist=$(cat files_list.txt)
-Dirlist=$(cat dir_list.txt)
+dirlist=$(cat dir_list.txt)
+sub_flist=$(cat sub_dudir.txt)
 
-dummy_fcheck()
-{
-echo -e "\e[32m Pre-defined test files & >60days modified files in $line:\n \e[0m"
-find $1 -type f \( -name '*test*' -o -name "*onetime*" -o -name "*dummy*" -o -name "*Test*file*" \) -exec ls -lt {} \; > testfiles.txt
-find $1 -mtime +60 -ls > olddated_files.txt
-}
+echo -e "***********Script started***************\n"
+
+pre_fcheck()
+ {
+	echo -e "\e[32mPre-defined test files in $line:\n \e[0m" 
+	find $1 -type f \( -name '*test*' -o -name "*onetime*" -o -name "*dummy*" -o -name "*Test*file*" -o -name '*TEST*' -o -name '*DUMMY*' \) -exec ls -lt {} \;
+
+echo -e "\n**********Files older than 60 days ***********\n"
+
+old_files=$(find $1 -mtime +60 -ls)
+
+if [[ $old_files ]]; then
+    echo -e "old dated Files found\n"
+	cat old_files
+else
+    echo -e "No old dated files found\n"
+fi
+echo "****************************************"
+ }
 
 highused_files()
 {
-echo -e "\e[34m Top 5 directory  & usage files & listing <15days created files in $Filesystem_Path:\n \e[0m"
-find $1 -type f -exec du -sk {} + | sort -rn | head -5 > dufiles.txt
-find $1 -type d -exec du -sk {} + | sort -rn | head -5 > dudir.txt
+	#echo -e "\e[34m Top 5 High disk used directories and files in $Filesystem_Path:\n \e[0m"
+	find $1 -type f -exec du -sg {} + | sort -rn | head -5 > dufiles.txt
+	find $1 -type d -exec du -sg {} + | sort -rn | head -5 > dudir.txt
 }
 
 dir_func()
 {
-echo -e "$1 \n"
+echo -e "\nFinding High disk used files in path : $1 \n"
+cd $1
+find . -type f -exec du -sk {} + | sort -rn | head -5 > /home/preek/sub_dudir.txt
+echo "************************************"
 }
 
+<<comm
 files_func()
 {
-echo -e "$1 \n"
+   file_len=$(istat "$line" |grep 'Length' | awk '{print $5F}')
+   max_len=1800
+   if [ -f "$line" && ! -s "$line" ] then
+	return
+	elif [-f "$line" && -s "$line" && $file_len -ge $max_len ] then
+		echo -e "File $line Details : \n"  >> /home/preek/fmail.txt
+		istat "$line" >> /home/preek/fmail.txt
+		echo -e "-----------------\n" >> /home/preek/fmail.txt
+	else
+	echo "File "$line" does not exist"
+	fi
 }
+comm
+files_func()
+{
+file_len=$(istat "$line" |grep 'Length' | awk '{print $5F}')
+max_len=1800
+    if [[ -f "$line" && -s "$line" && $file_len -ge $max_len ]]
+	then
+	echo -e "File $line Details : \n"  
+	istat "$line"
+	echo -e "-----------------\n"
+	else
+	echo "File "$line" not > $max_len size"
+	fi
+}
+
+
 
 for line in $filepath
 do
-#cd $line
 #calling functions
-dummy_fcheck "$line"
+pre_fcheck "$line"
 highused_files "$line"
 awk -F ' ' '{print $NF}' dufiles.txt > files_list.txt
 awk -F ' ' '{print $NF}' dudir.txt > dir_list.txt
-
-for i in $filelist do
-dir_func "$i"
 done
 
-for j in $Dirlist do
-files_func "$j"
+for line in $filelist
+do
+echo -e "***checking File size: $line: \n"
+files_func "$line"
 done
 
+for line in $sub_flist
+do
+echo -e "***checking file size in sub directory $line: \n"
+files_func "$line"
 done
+
+for line in $dirlist
+do
+dir_func "$line"
+done
+
 echo -e "\e[32m *******Succesfully completed***********\n \e[0m"
 exit 0
 
-
-cd $1
-fsize=$( stat -c %s $1)
-find . fsize > 200GB -ctime -15 -ls && return $TRUE || return $FALSE
-# return $TRUE (0) if file found 
-# return $FALSE (1) if file not found
-
-[ -f "$1" ] && return $TRUE || return $FALSE
-}
-if [ $? -eq 0 ]
-then
-	echo "$file added to backup task"
-else
-	echo "$file not found."
-fi
-cd $1
