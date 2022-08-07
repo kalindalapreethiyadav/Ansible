@@ -17,10 +17,10 @@
     name: common
     tasks_from: cleanup
 
-- name: Old files Removal and copying files to {{ COMPONENT }} folder
-  ansible.builtin.shell: cd dispatch ; go mod init dispatch ; go get ; go build 
-    name: common
-    tasks_from: cleanup
+- name: This command will change the working directory to somedir/
+  ansible.builtin.shell:
+    cmd: go mod init dispatch ; go get ; go build
+    chdir: dispatch/
 
 - name: Restart service {{ COMPONENT }}
   ansible.builtin.service:
