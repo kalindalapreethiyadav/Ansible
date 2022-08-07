@@ -19,8 +19,7 @@
     src: /tmp/frontend-main/static/
     dest: /usr/share/nginx/html
     remote_src: yes
-
-
+    
 # If src and dest ends with /, it's very important to know what you're aming directory, not just the content.
 - name: copy the proxy file 
   ansible.builtin.template:
