@@ -20,7 +20,7 @@ aws route53 change-resource-record-sets --hosted-zone-id Z037286228DFYMBZCZ58K -
 
 }
 
-if [ "$1" == "all" ] ; then 
+if [ "$1" == "all" ] | [ "$2" == "all" ] ; then 
     for component in catalogue cart user shipping payment frontend mongodb mysql rabbitmq redis ; do 
         COMPONENT=$COMPONENT
         create_server 
