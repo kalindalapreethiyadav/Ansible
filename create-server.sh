@@ -2,6 +2,7 @@
 #!/bin/bash/
 #This script to create a server and assign records to the route53 host zone
 COMPONENT=$1
+ENV=$2
 SGID="sg-09f0434c8144d66e5"
 #Script Aim is to create a vm instance and records creation and update to host zone 
 #lets find out the AMI id of the AMI 
