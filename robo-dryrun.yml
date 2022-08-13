@@ -54,7 +54,7 @@
         - name: Import a role
           import_role:
             name: "{{role_name}}"
-          ignore_errors: yes
+          #ignore_errors: yes
           become: yes
       always:                             # This ensure this will be running always even if the previous task in the block fails. Why are we using it to ensure, instance deletion happens at any cost.
         - name: Terminate instances that were previously launched
