@@ -1,6 +1,7 @@
 # Launch instances, runs some tasks
 # and then terminate them
 # This is already present in the ansible documentations, I a just consuming it.
+# ansible-playbook -i inventory robo-dryrun.yml -u centos -e ansible_password=DevOps321 -e COMPONENT=mongodb -e ENV=dev
 
 - name: Playbook to create the ec2, do a dry run and then self-destroy
   hosts: localhost
