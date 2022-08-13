@@ -1,5 +1,5 @@
 pipeline{
-    agent msr
+    agent any
     stages
     {
     stage('hello') {
