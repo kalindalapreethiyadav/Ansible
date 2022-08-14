@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Do a dry-run') {        // This will be executed only when you raise a PR
             steps {
-                sh "echo curl ifconfig.co"
+                sh "curl ifconfig.co"
                 //sh "ansible-playbook -i inventory robo-dryrun.yml -u centos -e ansible_password=DevOps321 -e COMPONENT=mongodb -e ENV=dev"
             }
         }
