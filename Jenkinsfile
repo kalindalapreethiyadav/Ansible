@@ -36,16 +36,6 @@ pipeline {
             }
         }
 
-
-
-        // stage('Running On Tag') {          // This will run when we push a tag
-        //     when { 
-        //        expression { env.TAG_NAME != null }
-        //         }       
-        //     steps {
-        //         sh "echo Runs only when you push a git tag"
-        //     }
-        // }
     }
 }
 
