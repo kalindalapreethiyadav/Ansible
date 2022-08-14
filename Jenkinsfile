@@ -14,7 +14,7 @@ pipeline {
                 sh "curl ifconfig.co"
                 sh "env"
                 sh "COMPONENT"
-                sh "ansible-playbook -i inventory -u centos -e ansible_password=DevOps321 -e COMPONENT=user -e ENV=dev robo-dryrun.yml"
+                sh "ansible-playbook robot-dryrun.yml -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=${params.COMPONENT} -e ENV=${params.ENV}"
             }
         }
 
