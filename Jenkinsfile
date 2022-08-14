@@ -10,6 +10,7 @@ pipeline {
 
     stages {
         stage ('lint checks') { 
+            when { branch pattern: "feature-*", comparator: "REGEXP" }
             steps
             {
                 sh "env"
@@ -17,14 +18,15 @@ pipeline {
             }
 
         }
-        stage('Do a dry-run') {        // This will be executed only when you raise a PR
-            steps {
-                sh "Need to run when PR is raised"
-                sh "ansible-playbook robot-dryrun.yml -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=${params.COMPONENT} -e ENV=${params.ENV}"
-            }
-        }
-
+        //stage('Do a dry-run') {        // This will be executed only when you raise a PR
+         //   steps {
+          //      sh "Need to run when PR is raised"
+         //       sh "ansible-playbook robot-dryrun.yml -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=${params.COMPONENT} -e ENV=${params.ENV}"
+       //     }
+     //   }
+//
     stage ('prompt to prod') {
+        when { branch 'main' }
          steps {
                 sh "when tag is raised then deploy to prod"
             }
