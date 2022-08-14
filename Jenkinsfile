@@ -12,6 +12,7 @@ pipeline {
         stage ('lint checks') { 
             steps
             {
+                sh "env"
                 sh "echo need to exute when job is created in Feature branch"
             }
 
