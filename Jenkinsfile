@@ -23,7 +23,7 @@ pipeline {
              when { branch pattern: "PR-.*", comparator: "REGEXP"}
             steps {
                 sh "env"   // Just to see tne environment variables as a part of the pipeline
-                sh "ansible-playbook robot-dryrun.yml -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=${params.COMPONENT} -e ENV=${params.ENV}"
+                sh "ansible-playbook -i inventory -e ansible_user=${SSH_CRED_USR} ansible_password=${SSH_CRED_PSW} -e COMPONENT=${params.COMPONENT} -e ENV=${params.ENV} robo-dryrun.yml"
             }
         }
 
