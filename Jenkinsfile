@@ -10,7 +10,7 @@ pipeline {
 
     stages {
         stage ('lint checks') { 
-            when { branch pattern: "feature-*", comparator: "REGEXP" }
+            when { branch pattern: "feature-.*", comparator: "REGEXP" }
             steps
             {
                 sh "env"
