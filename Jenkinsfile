@@ -5,7 +5,7 @@ pipeline {
         
         stage('Do a dry-run') {        // This will be executed only when you raise a PR
             steps {
-                sh "ansible-playbook robo-dryrun.yml -e ansible_user=centos -e ansible_password=DevOps321 -e COMPONENT=redis -e ENV=dev"
+                sh "ansible-playbook -i inventory robo-dryrun.yml -u centos -e ansible_password=DevOps321 -e COMPONENT=mongodb -e ENV=dev"
             }
         }
 
