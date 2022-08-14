@@ -32,7 +32,7 @@ pipeline {
             steps {
                 git branch: 'main', credentialsId: 'Gitub-Token', url: 'https://github.com/b49-clouddevops/ansible.git'
                 sh "pwd"
-            //sh "bash -x auto-tag.sh"   
+                sh "bash -x auto-tag.sh"   
             }
         }
 
