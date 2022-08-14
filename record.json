@@ -1,0 +1,11 @@
+{
+    "Comment": "CREATE/DELETE/UPSERT a record ",
+    "Changes": [{
+    "Action": "UPSERT",
+                "ResourceRecordSet": {
+                "Name": "payment-.robotshop.internal",
+                "Type": "A",
+                "TTL": 10,
+                "ResourceRecords": [{ "Value": "172.31.84.19"}]
+    }}]
+}
