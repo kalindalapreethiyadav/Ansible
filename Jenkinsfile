@@ -13,7 +13,6 @@ pipeline {
             when { branch pattern: "feature-.*", comparator: "REGEXP" }
             steps
             {
-                sh "env"
                 sh "echo need to exute when job is created in Feature branch"
             }
 
@@ -30,7 +29,7 @@ pipeline {
          steps {
                 sh "when tag is raised then deploy to prod"
             }
-    }
+         }
 
     }
 }
