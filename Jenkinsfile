@@ -1,11 +1,17 @@
 pipeline {
    agent any
+   environment {
+        SSH_CRED = credentials('SSH-Centos7')
+        choice(name: 'ENV', choices: ['dev', 'prod'], description: 'Chose the environment')
+        string(name: 'COMPONENT', defaultValue: 'mongodb', description: 'Enter the name of the component')
+    }
 
     stages {
         stage('Do a dry-run') {        // This will be executed only when you raise a PR
             steps {
                 sh "curl ifconfig.co"
-                sh "pip3 install boto"
+                sh "env"
+                sh "COMPONENT"
                 sh "ansible-playbook -i inventory -u centos -e ansible_password=DevOps321 -e COMPONENT=user -e ENV=dev robo-dryrun.yml"
             }
         }
