@@ -13,15 +13,12 @@ pipeline {
             steps
             {
                 sh "echo need to exute when job is created in Feature branch"
-                sh "echo hii check"
-                sh " only need to excute when we raise PR"
             }
 
         }
         stage('Do a dry-run') {        // This will be executed only when you raise a PR
             steps {
                 sh "Need to run when PR is raised"
-                sh "curl ifconfig.co"
                 sh "ansible-playbook robot-dryrun.yml -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=${params.COMPONENT} -e ENV=${params.ENV}"
             }
         }
