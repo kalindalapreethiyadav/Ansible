@@ -31,7 +31,7 @@ pipeline {
             when { branch 'main' }       
             steps {
                 git branch: 'main', url: "https://${GIT_USR}:${GIT_PSW}@github.com/b49-clouddevops/ansible.git"   // Git Clone
-                sh "env"
+                sh "pwd"
                 sh "bash -x auto-tag.sh"   
             }
         }
