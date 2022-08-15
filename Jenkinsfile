@@ -31,8 +31,7 @@ pipeline {
                     when { branch 'main' }       
                     steps {
                         git branch: 'main', url: "https://${GIT_USER}:${GIT_PSW}@github.com/kalindalapreethiyadav/Ansible.git"
-                        s
-                        h "env"
+                        sh "env"
                         sh "bash -x auto-tag.sh"   
                     }
                 }
