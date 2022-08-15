@@ -37,8 +37,6 @@ pipeline {
             when { branch 'main' }       
             steps {
                 git branch: 'main', credentialsId: 'Gitub-Token', url: 'https://github.com/kalindalapreethiyadav/Ansible.git'
-                sh "pwd"
->>>>>>> origin
                 sh "bash -x auto-tag.sh"   
             }
         }
