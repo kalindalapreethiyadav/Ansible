@@ -27,22 +27,13 @@ pipeline {
             }
         }
 
-<<<<<<< HEAD
-     stage('Tagging') {
-            when { branch 'main' }       
-            steps {
-                git branch: 'main', credentialsId: 'Gitub-Token', url: 'https://github.com/kalindalapreethiyadav/Ansible.git'
-=======
- stage('Tagging') {
-            when { branch 'main' }       
-            steps {
-                git branch: 'main', credentialsId: 'Gitub-Token', url: 'https://github.com/kalindalapreethiyadav/Ansible.git'
-                sh "bash -x auto-tag.sh"   
-            }
-        }
-
-
-
+        stage('Tagging') {
+                    when { branch 'main' }       
+                    steps {
+                        git branch: 'main', credentialsId: 'Gitub-Token', url: 'https://github.com/kalindalapreethiyadav/Ansible.git'
+                        sh "bash -x auto-tag.sh"   
+                    }
+                }
 
     }
 }
