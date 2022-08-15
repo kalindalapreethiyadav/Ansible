@@ -30,7 +30,7 @@ pipeline {
  stage('Tagging') {
             when { branch 'main' }       
             steps {
-                git branch: 'main', credentialsId: 'Gitub-Token', url: 'https://github.com/b49-clouddevops/ansible.git'
+                git branch: 'main', credentialsId: 'Gitub-Token', url: 'https://github.com/kalindalapreethiyadav/Ansible.git'
                 sh "pwd"
                 sh "bash -x auto-tag.sh"   
             }
