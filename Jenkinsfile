@@ -6,6 +6,7 @@ pipeline {
     }
     environment {
         SSH_CRED = credentials('SSH-Centos7')
+        GIT_CRED = credentials('Gitub-Token')
     }
 
      stages {
