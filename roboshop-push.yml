@@ -1,0 +1,6 @@
+- name: Playbook to setup the roboshop project 
+  # hosts: "{{ COMPONENT }}-{{ ENV }}" 
+  hosts: all 
+  become: yes          # Runs the whole playbook as a root user 
+  roles:  
+    - "{{ COMPONENT }}"
