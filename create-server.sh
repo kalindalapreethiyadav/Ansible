@@ -13,7 +13,7 @@ fi
 COMPONENT=$1
 ENV=$2
 SGID="sg-09f0434c8144d66e5"
-AMI_ID="ami-0bb6af715826253bfcd"
+AMI_ID="ami-0bb6af715826253bf"
 # AMI_ID=$(aws ec2 describe-images  --filters "Name=name,Values=CloudDevOps-LabImage-CentOS7" | jq '.Images[].ImageId' | sed -e 's/"//g')
 echo $AMI_ID 
 
