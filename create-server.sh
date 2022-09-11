@@ -12,7 +12,11 @@ fi
 
 COMPONENT=$1
 ENV=$2
+<<<<<<< HEAD
 SGID="sg-0ffa1b398d4451324"
+=======
+SGID="sg-09f0434c8144d66e5"
+>>>>>>> origin
 AMI_ID="ami-00ff427d936335825"
 # AMI_ID=$(aws ec2 describe-images  --filters "Name=name,Values=CloudDevOps-LabImage-CentOS7" | jq '.Images[].ImageId' | sed -e 's/"//g')
 echo $AMI_ID 
@@ -33,5 +37,9 @@ if [ "$1" == "all" ]; then
     done 
 else 
     create_server # Calling a function 
+<<<<<<< HEAD
 fi
 
+=======
+fi
+>>>>>>> origin

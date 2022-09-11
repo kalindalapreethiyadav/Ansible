@@ -6,6 +6,7 @@ pipeline {
     }
     environment {
         SSH_CRED = credentials('SSH-Centos7')
+        GIT = credentials('Gitub-Token')
     }
 
      stages {
@@ -28,13 +29,13 @@ pipeline {
         }
 
         stage('Tagging') {
-            when { branch 'main' }       
-            steps {
-                sh "env"
-            }
-        }
-
-
+                    when { branch 'main' }       
+                    steps {
+                        git branch: 'main', url: "https://${GIT_USR}:${GIT_PSW}@github.com/kalindalapreethiyadav/Ansible.git"
+                        sh "bash -x auto-tag.sh"
+                        sh "env"   
+                    }
+                }
 
     }
 }
