@@ -22,11 +22,11 @@
     cmd: go mod init dispatch ; go get ; go build
     chdir: /home/{{APPUSER}}/{{COMPONENT}}/
 
-- name: configuring systemd files
-  ansible.builtin.copy:
-    src: "/home/{{APPUSER}}/{{COMPONENT}}/systemd.service"
-    dest: "/etc/systemd/system/{{COMPONENT}}.service"
-
+- name: Configuring and Starting {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common 
+    tasks_from: systemd 
+    
 - name: Restart service {{ COMPONENT }}
   ansible.builtin.service:
     name: "{{COMPONENT}}"
