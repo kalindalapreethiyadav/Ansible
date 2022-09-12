@@ -22,6 +22,11 @@
     cmd: go mod init dispatch ; go get ; go build
     chdir: /home/{{APPUSER}}/{{COMPONENT}}/
 
+- name: Old files Removal and copying files to {{ COMPONENT }} folder
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd
+
 - name: Restart service {{ COMPONENT }}
   ansible.builtin.service:
     name: "{{COMPONENT}}"
