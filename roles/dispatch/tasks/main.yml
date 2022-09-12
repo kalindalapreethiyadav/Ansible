@@ -22,10 +22,10 @@
     cmd: go mod init dispatch ; go get ; go build
     chdir: /home/{{APPUSER}}/{{COMPONENT}}/
 
-- name: Old files Removal and copying files to {{ COMPONENT }} folder
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: systemd
+- name: configuring systemd files
+  ansible.builtin.template:
+    src: "/home/{{APPUSER}}/{{COMPONENT}}/systemd.service"
+    dest: /etc/systemd/system/{{COMPONENT}}.service
 
 - name: Restart service {{ COMPONENT }}
   ansible.builtin.service:
