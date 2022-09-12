@@ -1,0 +1,3 @@
+- name: I am the task from dependant role
+  debug:
+    msg: "I am the task that dependant on frontend role, Excute first frontend"
