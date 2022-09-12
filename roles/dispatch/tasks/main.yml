@@ -21,7 +21,6 @@
   ansible.builtin.shell:
     cmd: go mod init dispatch ; go get ; go build
     chdir: /home/{{APPUSER}}/{{COMPONENT}}/
-    become_user: "{{APPUSER}}"
 
 - name: Restart service {{ COMPONENT }}
   ansible.builtin.service:
