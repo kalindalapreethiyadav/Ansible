@@ -1,39 +1,4 @@
-- name: Install mongodb
-  ansible.builtin.package:
-    name: golang
-    state: present
-
-- name: creating the app user {{ APPUSER }}
-  ansible.builtin.user:
-    name: "{{ APPUSER }}"
-
-- name: Downlaod and extract to {{ COMPONENT }} folder
+- name: Installing {{ COMPONENT }}
   ansible.builtin.include_role:
     name: common
-    tasks_from: download
-
-- name: Old files Removal and copying files to {{ COMPONENT }} folder
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: cleanup
-
-- name: excuting go commands
-  ansible.builtin.shell:
-    cmd: go mod init dispatch ; go get ; go build
-    chdir: /home/{{APPUSER}}/{{COMPONENT}}/
-
-- name: Configuring and Starting {{COMPONENT}}
-  ansible.builtin.include_role:
-    name: common 
-    tasks_from: systemd 
-    
-- name: Restart service {{ COMPONENT }}
-  ansible.builtin.service:
-    name: "{{COMPONENT}}"
-    state: restarted
-    daemon-reload: yes
-
-- name: set hostname and disable-auto-shutdown
-  ansible.builtin.include_role: 
-    name: common 
-    tasks_from: set-hostname 
+    tasks_from: golang
