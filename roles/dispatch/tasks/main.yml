@@ -25,7 +25,7 @@
 - name: configuring systemd files
   ansible.builtin.template:
     src: "/home/{{APPUSER}}/{{COMPONENT}}/systemd.service"
-    dest: /etc/systemd/system/{{COMPONENT}}.service
+    dest: "/etc/systemd/system/{{COMPONENT}}.service"
 
 - name: Restart service {{ COMPONENT }}
   ansible.builtin.service:
