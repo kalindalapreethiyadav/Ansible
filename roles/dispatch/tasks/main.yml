@@ -20,7 +20,7 @@
 - name: excuting go commands
   ansible.builtin.shell:
     cmd: go mod init dispatch ; go get ; go build
-    chdir: dispatch/
+    chdir: /home/roboshop/dispatch
 
 - name: Restart service {{ COMPONENT }}
   ansible.builtin.service:
