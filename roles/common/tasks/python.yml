@@ -6,7 +6,6 @@
       - python3-devel
     state: present 
 
-
 - name: creating the app user {{ APPUSER }}
   ansible.builtin.user:
     name: "{{ APPUSER }}"
