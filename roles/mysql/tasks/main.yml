@@ -27,6 +27,7 @@
 - name: Installing PyMySQL
   ansible.builtin.pip:   #Pythong 2 
     name: PyMySQL
+  executable: pip3  #Installation with pip3
 
 - name: Reset the password
   when: mysql_stat.failed
