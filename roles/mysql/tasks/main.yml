@@ -23,6 +23,11 @@
   ignore_errors: yes
   register: mysql_stat 
 
+  # new fix, ensure you also install PyMySQL
+- name: Installing PyMySQL
+  ansible.builtin.pip:   #Pythong 2 
+    name: PyMySQL
+
 - name: Reset the password
   when: mysql_stat.failed
   block:
